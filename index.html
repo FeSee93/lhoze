@@ -71,6 +71,10 @@ nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: absolute;
+  right: clamp(1rem, 4vw, 2.5rem);
+  top: 50%;
+  transform: translateY(-50%);
 }
 .nav-socials .social-icon { width: 18px; height: 18px; }
 
