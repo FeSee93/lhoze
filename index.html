@@ -193,14 +193,13 @@ section {
   border-top: 1px solid var(--smoke);
 }
 .tour-list li { border-bottom: 1px solid var(--smoke); }
-.tour-list a {
+.tour-row {
   display: grid;
   grid-template-columns: 8.5rem 1fr auto;
   align-items: baseline;
   gap: 1.5rem;
   padding: 1.4rem 0.8rem;
   color: var(--light);
-  text-decoration: none;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   transition: background 0.35s ease, color 0.35s ease;
@@ -214,15 +213,12 @@ section {
   color: var(--fog);
   transition: color 0.35s ease;
 }
-.tour-list a:hover, .tour-list a:focus-visible {
+.tour-row:hover {
   background: var(--light);
   color: var(--black);
 }
-.tour-list a:hover .tour-date,
-.tour-list a:hover .tour-cta,
-.tour-list a:focus-visible .tour-date,
-.tour-list a:focus-visible .tour-cta { color: var(--black); }
-.tour-list a:focus-visible { outline: none; }
+.tour-row:hover .tour-date,
+.tour-row:hover .tour-cta { color: var(--black); }
 .tour-empty {
   text-align: center;
   font-family: var(--font-mono);
@@ -376,46 +372,46 @@ footer .legal a:hover { color: var(--fog); }
   <h2 class="section-title">Live</h2>
   <ul class="tour-list">
     <li>
-      <a href="#">
+      <div class="tour-row">
         <span class="tour-date">26.09.2026</span>
         <span class="tour-venue">Ibbenbüren — Scheune</span>
         <span class="tour-cta">Tickets soon</span>
-      </a>
+      </div>
     </li>
     <li>
-      <a href="#">
+      <div class="tour-row">
         <span class="tour-date">17.10.2026</span>
         <span class="tour-venue">Schüttorf — Komplex</span>
         <span class="tour-cta">Tickets soon</span>
-      </a>
+      </div>
     </li>
     <li>
-      <a href="#">
+      <div class="tour-row">
         <span class="tour-date">24.10.2026</span>
         <span class="tour-venue">Münster — B-Side</span>
         <span class="tour-cta">Tickets soon</span>
-      </a>
+      </div>
     </li>
     <li>
-      <a href="#">
+      <div class="tour-row">
         <span class="tour-date">13.11.2026</span>
         <span class="tour-venue">Remscheid — Kraftwerk</span>
         <span class="tour-cta">Tickets soon</span>
-      </a>
+      </div>
     </li>
     <li>
-      <a href="#">
+      <div class="tour-row">
         <span class="tour-date">27.11.2026</span>
         <span class="tour-venue">Münster — Baracke</span>
         <span class="tour-cta">Tickets soon</span>
-      </a>
+      </div>
     </li>
     <li>
-      <a href="#">
+      <div class="tour-row">
         <span class="tour-date">06.02.2027</span>
         <span class="tour-venue">Münster — Sputnikhalle</span>
         <span class="tour-cta">Tickets soon</span>
-      </a>
+      </div>
     </li>
   </ul>
   <!-- Wenn gerade keine Termine anstehen, die <ul> oben löschen
