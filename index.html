@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lhozê — Ambient Metalcore</title>
+<meta name="description" content="Lhozê — Ambient Metalcore aus Münster. Tourdaten, Videos, Merch.">
+<meta property="og:title" content="Lhozê">
+<meta property="og:description" content="Ambient Metalcore">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   LHOZÊ — Ambient Metalcore
+   Farben & Grundwerte
+   ============================================================ */
+:root {
+  --black: #050505;
+  --near-black: #0b0b0c;
+  --smoke: #1a1a1c;
+  --fog: #8f8f94;      /* gedämpftes Grau für Nebentexte */
+  --light: #ececee;    /* Haupttextfarbe, kein reines Weiß */
+  --bloom: #ffffff;    /* das "Licht" – nur für Logo & Hover */
+  --font-display: 'Jost', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--light);
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.2rem, 4vw, 3rem);
+  padding: 1.2rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.85), transparent);
+}
+nav a {
+  color: var(--fog);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+nav a:hover, nav a:focus-visible { color: var(--bloom); }
+nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
+
+/* ============================================================
+   HERO — Foto mit Übergang in Schwarz
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/hero.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  animation: breathe 14s ease-in-out infinite;
+}
+@media (max-width: 700px) {
+  .hero-bg { background-image: url('assets/hero-mobile.jpg'); }
+}
+/* Übergang in Schwarz: unten und leicht an den Rändern */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(5,5,5,0.25) 0%,
+      rgba(5,5,5,0.0) 30%,
+      rgba(5,5,5,0.55) 68%,
+      var(--black) 96%),
+    radial-gradient(ellipse at center 35%, transparent 40%, rgba(5,5,5,0.5) 100%);
+  pointer-events: none;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.92; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.025); }
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-bottom: clamp(3rem, 10vh, 7rem);
+  width: 100%;
+}
+.hero-logo {
+  width: min(560px, 78vw);
+  height: auto;
+  filter: drop-shadow(0 0 24px rgba(255,255,255,0.25));
+}
+.hero-tag {
+  margin-top: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--fog);
+  text-indent: 0.55em; /* gleicht letter-spacing am Ende aus */
+}
+
+/* ============================================================
+   SEKTIONEN
+   ============================================================ */
+section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(4rem, 12vh, 8rem) 1.5rem;
+}
+.section-title {
+  font-family: var(--font-mono);
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--fog);
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, var(--fog), transparent);
+  margin: 1.5rem auto 0;
+}
+
+/* ============================================================
+   VIDEOS
+   ============================================================ */
+.video-grid {
+  display: grid;
+  gap: 3rem;
+}
+.video-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--near-black);
+  border: 1px solid var(--smoke);
+}
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-caption {
+  margin-top: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--fog);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   TOUR
+   ============================================================ */
+.tour-list {
+  list-style: none;
+  border-top: 1px solid var(--smoke);
+}
+.tour-list li { border-bottom: 1px solid var(--smoke); }
+.tour-list a {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.4rem 0.8rem;
+  color: var(--light);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.tour-date { color: var(--fog); font-size: 0.8rem; letter-spacing: 0.1em; }
+.tour-venue { font-family: var(--font-display); font-weight: 300; font-size: 1.05rem; letter-spacing: 0.04em; }
+.tour-cta {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--fog);
+  transition: color 0.35s ease;
+}
+.tour-list a:hover, .tour-list a:focus-visible {
+  background: var(--light);
+  color: var(--black);
+}
+.tour-list a:hover .tour-date,
+.tour-list a:hover .tour-cta,
+.tour-list a:focus-visible .tour-date,
+.tour-list a:focus-visible .tour-cta { color: var(--black); }
+.tour-list a:focus-visible { outline: none; }
+.tour-empty {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--fog);
+  padding: 2rem 0;
+}
+
+/* ============================================================
+   MERCH / BANDCAMP
+   ============================================================ */
+.merch-wrap {
+  display: flex;
+  justify-content: center;
+}
+.merch-wrap iframe {
+  border: 1px solid var(--smoke);
+  max-width: 100%;
+}
+.merch-note {
+  text-align: center;
+  margin-top: 2rem;
+}
+.merch-note a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--fog);
+  text-decoration: none;
+  border-bottom: 1px solid var(--smoke);
+  padding-bottom: 0.3rem;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.merch-note a:hover, .merch-note a:focus-visible {
+  color: var(--bloom);
+  border-color: var(--bloom);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--smoke);
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.socials a {
+  color: var(--fog);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+.socials a:hover, .socials a:focus-visible { color: var(--bloom); }
+footer .legal {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: #55555a;
+}
+footer .legal a { color: #55555a; }
+footer .legal a:hover { color: var(--fog); }
+
+/* ============================================================
+   Scroll-Reveal (dezent) & Reduced Motion
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.1s ease, transform 1.1s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#videos">Videos</a>
+  <a href="#tour">Tour</a>
+  <a href="#merch">Merch</a>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="Bandfoto Lhozê"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="assets/logo.png" alt="Lhozê">
+    <p class="hero-tag">Ambient Metalcore</p>
+  </div>
+</header>
+
+<!-- ============================================================
+     VIDEOS
+     Zum Austauschen: bei YouTube auf "Teilen" → die Video-ID ist
+     der Teil hinter youtu.be/ bzw. watch?v=
+     Dann unten VIDEO_ID_1 / VIDEO_ID_2 ersetzen.
+     youtube-nocookie.com = datenschutzfreundlicher Embed-Modus.
+     ============================================================ -->
+<section id="videos" class="reveal">
+  <h2 class="section-title">Videos</h2>
+  <div class="video-grid">
+    <div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/VIDEO_ID_1"
+          title="Lhozê – Video 1"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">Titel des ersten Videos</p>
+    </div>
+    <div>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/VIDEO_ID_2"
+          title="Lhozê – Video 2"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">Titel des zweiten Videos</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TOUR
+     Pro Termin ein <li>-Block. Datum, Stadt/Venue und Ticket-Link
+     anpassen. Termine ohne Ticketlink: href="#" durch die
+     Venue-Seite ersetzen oder das <a> durch ein <div> tauschen.
+     ============================================================ -->
+<section id="tour" class="reveal">
+  <h2 class="section-title">Tour</h2>
+  <ul class="tour-list">
+    <li>
+      <a href="https://ticketlink-beispiel.de" target="_blank" rel="noopener">
+        <span class="tour-date">12.09.2026</span>
+        <span class="tour-venue">Münster — Sputnikhalle</span>
+        <span class="tour-cta">Tickets →</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://ticketlink-beispiel.de" target="_blank" rel="noopener">
+        <span class="tour-date">26.09.2026</span>
+        <span class="tour-venue">Köln — MTC</span>
+        <span class="tour-cta">Tickets →</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://ticketlink-beispiel.de" target="_blank" rel="noopener">
+        <span class="tour-date">10.10.2026</span>
+        <span class="tour-venue">Hamburg — Hafenklang</span>
+        <span class="tour-cta">Tickets →</span>
+      </a>
+    </li>
+  </ul>
+  <!-- Wenn gerade keine Termine anstehen, die <ul> oben löschen
+       und stattdessen diese Zeile einkommentieren:
+  <p class="tour-empty">Aktuell keine Termine — bald mehr.</p>
+  -->
+</section>
+
+<!-- ============================================================
+     MERCH / BANDCAMP
+     Euren eigenen Embed-Code bekommt ihr auf eurer Bandcamp-
+     Album-Seite unter "Share / Embed" → "Embed this album".
+     Dort Größe "Large" wählen, den <iframe>-Code kopieren und
+     den kompletten iframe unten damit ersetzen.
+     Tipp: bgcol=050505 und linkcol=ececee passen zur Seite.
+     ============================================================ -->
+<section id="merch" class="reveal">
+  <h2 class="section-title">Merch &amp; Musik</h2>
+  <div class="merch-wrap">
+    <iframe
+      style="border: 0; width: 400px; height: 472px;"
+      src="https://bandcamp.com/EmbeddedPlayer/album=ALBUM_ID/size=large/bgcol=050505/linkcol=ececee/tracklist=false/transparent=true/"
+      seamless
+      title="Lhozê auf Bandcamp"
+      loading="lazy"></iframe>
+  </div>
+  <p class="merch-note">
+    <a href="https://lhoze.bandcamp.com" target="_blank" rel="noopener">Zum Bandcamp-Shop →</a>
+  </p>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     Social-Links anpassen. Impressum & Datenschutz sind in
+     Deutschland Pflicht — Links auf eigene Unterseiten setzen.
+     ============================================================ -->
+<footer>
+  <div class="socials">
+    <a href="https://instagram.com/DEIN_HANDLE" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://open.spotify.com/artist/DEINE_ID" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://youtube.com/@DEIN_KANAL" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://lhoze.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+  </div>
+  <p class="legal">
+    © 2026 Lhozê &nbsp;·&nbsp; <a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a>
+  </p>
+</footer>
+
+<script>
+// Dezentes Einblenden der Sektionen beim Scrollen
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
