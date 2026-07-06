@@ -232,6 +232,22 @@ section {
 /* ============================================================
    MERCH / BANDCAMP
    ============================================================ */
+.merch-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.merch-photos img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--smoke);
+  background: var(--near-black);
+}
+@media (max-width: 700px) {
+  .merch-photos { grid-template-columns: 1fr; }
+}
 .merch-wrap {
   display: flex;
   justify-content: center;
@@ -437,6 +453,11 @@ footer .legal a:hover { color: var(--fog); }
      ============================================================ -->
 <section id="merch" class="reveal">
   <h2 class="section-title">Merch</h2>
+  <div class="merch-photos">
+    <img src="assets/merch-1.jpg" alt="Lhozê Merch – Vorderseite" loading="lazy">
+    <img src="assets/merch-2.jpg" alt="Lhozê Merch – Rückseite" loading="lazy">
+    <img src="assets/merch-3.jpg" alt="Lhozê Merch – getragen" loading="lazy">
+  </div>
   <div class="merch-wrap">
     <iframe
       style="border: 0; width: 400px; height: 472px;"
