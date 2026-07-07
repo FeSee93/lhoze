@@ -39,6 +39,16 @@ body {
   font-weight: 300;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('assets/Berg.png') center center / cover no-repeat;
+  opacity: 0.08;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ============================================================
