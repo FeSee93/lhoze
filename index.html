@@ -107,11 +107,13 @@ nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
   background-size: cover;
   background-position: center 30%;
   animation: breathe 14s ease-in-out infinite;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
 }
 @media (max-width: 700px) {
   .hero-bg { background-image: url('assets/hero-mobile.jpg'); }
 }
-/* Übergang in Schwarz: unten und leicht an den Rändern */
+/* Übergang in Transparenz: unten und leicht an den Rändern */
 .hero::after {
   content: '';
   position: absolute;
@@ -121,7 +123,7 @@ nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
       rgba(5,5,5,0.25) 0%,
       rgba(5,5,5,0.0) 30%,
       rgba(5,5,5,0.55) 68%,
-      var(--black) 96%),
+      rgba(5,5,5,0) 100%),
     radial-gradient(ellipse at center 35%, transparent 40%, rgba(5,5,5,0.5) 100%);
   pointer-events: none;
 }
