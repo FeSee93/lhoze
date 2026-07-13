@@ -129,7 +129,12 @@ nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
   mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
 }
 @media (max-width: 700px) {
-  .hero-bg { background-image: url('assets/hero-mobile.jpg'); }
+  .hero-bg {
+    background-image: url('assets/hero-mobile.jpg');
+    background-size: contain;
+    background-position: center 15%;
+    background-repeat: no-repeat;
+  }
 }
 /* Übergang in Transparenz: unten und leicht an den Rändern */
 .hero::after {
