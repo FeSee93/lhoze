@@ -181,7 +181,7 @@ nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
     justify-content: center;
     align-items: center;
     gap: 0.9rem;
-    padding: 1.1rem 1rem 0;
+    margin-bottom: 1.4rem;
   }
   .hero-socials .social-icon { width: 20px; height: 20px; }
   .hero-socials a { color: #F58E27; }
@@ -465,60 +465,59 @@ footer .legal a:hover { color: var(--fog); }
 <header class="hero">
   <div class="hero-bg" role="img" aria-label="Bandfoto Lhozê"></div>
   <div class="hero-content">
+    <!-- Social-Icons unter dem Titelbild, über dem Logo — nur mobil sichtbar (siehe .hero-socials) -->
+    <div class="hero-socials">
+      <a href="https://www.instagram.com/lhoze.band/" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="sr-only">Instagram</span>
+      </a>
+      <a href="https://open.spotify.com/intl-de/artist/4uTdBXDq3lxMnXTZ5sAYrV" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.3"/>
+          <path d="M6.8 9.6c3.6-1 7.3-0.7 10 1" stroke-linecap="round"/>
+          <path d="M7.3 12.8c3-0.8 6.1-0.6 8.6 0.9" stroke-linecap="round"/>
+          <path d="M7.9 15.9c2.4-0.6 4.8-0.5 6.8 0.6" stroke-linecap="round"/>
+        </svg>
+        <span class="sr-only">Spotify</span>
+      </a>
+      <a href="https://www.youtube.com/@lhozelhozelhoze" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="2.4" y="5.5" width="19.2" height="13" rx="4"/>
+          <path d="M10 9.2l5.2 2.8-5.2 2.8z" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="sr-only">YouTube</span>
+      </a>
+      <a href="https://lhoze.bandcamp.com" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+          <path d="M0 18.75 7.437 5.25H24l-7.437 13.5z"/>
+        </svg>
+        <span class="sr-only">Bandcamp</span>
+      </a>
+      <a href="https://www.tiktok.com/@lhozelhozelhoze" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+          <path d="M13.9 3.5h2.9c.2 1.9 1.5 3.4 3.4 3.7v2.9c-1.3 0-2.5-.4-3.4-1.1v5.6c0 3.1-2.5 5.6-5.6 5.6S5.6 17.7 5.6 14.6s2.5-5.6 5.6-5.6c.3 0 .6 0 .9.1v2.9c-.3-.1-.6-.2-.9-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V3.5z"/>
+        </svg>
+        <span class="sr-only">TikTok</span>
+      </a>
+      <a href="https://tidal.com/artist/51974593" target="_blank" rel="noopener">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+          <path d="M5 5.2 8.3 8.5 5 11.8 1.7 8.5z"/>
+          <path d="M11.6 5.2 14.9 8.5 11.6 11.8 8.3 8.5z"/>
+          <path d="M18.2 5.2 21.5 8.5 18.2 11.8 14.9 8.5z"/>
+          <path d="M11.6 11.8 14.9 15.1 11.6 18.4 8.3 15.1z"/>
+        </svg>
+        <span class="sr-only">Tidal</span>
+      </a>
+    </div>
     <img class="hero-logo" src="assets/logo.png" alt="Lhozê">
     <p class="hero-tag hero-tag-main">Ambient Metalcore</p>
     <p class="hero-tag hero-tag-sub">Muenster - Est. 2023</p>
   </div>
 </header>
-
-<!-- Social-Icons unter dem Titelbild — nur mobil sichtbar (siehe .hero-socials) -->
-<div class="hero-socials">
-  <a href="https://www.instagram.com/lhoze.band/" target="_blank" rel="noopener">
-    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5"/>
-      <circle cx="12" cy="12" r="4.2"/>
-      <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
-    </svg>
-    <span class="sr-only">Instagram</span>
-  </a>
-  <a href="https://open.spotify.com/intl-de/artist/4uTdBXDq3lxMnXTZ5sAYrV" target="_blank" rel="noopener">
-    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-      <circle cx="12" cy="12" r="9.3"/>
-      <path d="M6.8 9.6c3.6-1 7.3-0.7 10 1" stroke-linecap="round"/>
-      <path d="M7.3 12.8c3-0.8 6.1-0.6 8.6 0.9" stroke-linecap="round"/>
-      <path d="M7.9 15.9c2.4-0.6 4.8-0.5 6.8 0.6" stroke-linecap="round"/>
-    </svg>
-    <span class="sr-only">Spotify</span>
-  </a>
-  <a href="https://www.youtube.com/@lhozelhozelhoze" target="_blank" rel="noopener">
-    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-      <rect x="2.4" y="5.5" width="19.2" height="13" rx="4"/>
-      <path d="M10 9.2l5.2 2.8-5.2 2.8z" fill="currentColor" stroke="none"/>
-    </svg>
-    <span class="sr-only">YouTube</span>
-  </a>
-  <a href="https://lhoze.bandcamp.com" target="_blank" rel="noopener">
-    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
-      <path d="M0 18.75 7.437 5.25H24l-7.437 13.5z"/>
-    </svg>
-    <span class="sr-only">Bandcamp</span>
-  </a>
-  <a href="https://www.tiktok.com/@lhozelhozelhoze" target="_blank" rel="noopener">
-    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
-      <path d="M13.9 3.5h2.9c.2 1.9 1.5 3.4 3.4 3.7v2.9c-1.3 0-2.5-.4-3.4-1.1v5.6c0 3.1-2.5 5.6-5.6 5.6S5.6 17.7 5.6 14.6s2.5-5.6 5.6-5.6c.3 0 .6 0 .9.1v2.9c-.3-.1-.6-.2-.9-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V3.5z"/>
-    </svg>
-    <span class="sr-only">TikTok</span>
-  </a>
-  <a href="https://tidal.com/artist/51974593" target="_blank" rel="noopener">
-    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
-      <path d="M5 5.2 8.3 8.5 5 11.8 1.7 8.5z"/>
-      <path d="M11.6 5.2 14.9 8.5 11.6 11.8 8.3 8.5z"/>
-      <path d="M18.2 5.2 21.5 8.5 18.2 11.8 14.9 8.5z"/>
-      <path d="M11.6 11.8 14.9 15.1 11.6 18.4 8.3 15.1z"/>
-    </svg>
-    <span class="sr-only">Tidal</span>
-  </a>
-</div>
 
 <!-- ============================================================
      VIDEOS
