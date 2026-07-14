@@ -129,6 +129,11 @@ nav a:focus-visible { outline: 1px solid var(--fog); outline-offset: 4px; }
     background-size: contain;
     background-position: top center;
     background-repeat: no-repeat;
+    /* Bild ist 100vw breit; bei einem Seitenverhältnis von ~1.5 endet es bei 100vw / 1.5 -
+       die Ausblendung wird an diese tatsächliche Bildhöhe gekoppelt statt an einen festen
+       Prozentsatz der Hero-Höhe, da Letzterer bei "contain" viel zu spät greifen würde. */
+    -webkit-mask-image: linear-gradient(to bottom, black 0, black calc(100vw / 1.499 - 70px), transparent calc(100vw / 1.499 + 50px));
+    mask-image: linear-gradient(to bottom, black 0, black calc(100vw / 1.499 - 70px), transparent calc(100vw / 1.499 + 50px));
   }
 }
 /* Übergang in Transparenz: unten und leicht an den Rändern */
