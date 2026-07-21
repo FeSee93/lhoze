@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>erjona</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    background: #ffffff;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  #countdown {
+    color: #000;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 5vw, 3rem);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  #heart {
+    color: #e10600;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<div id="countdown">Lädt …</div>
+<div id="heart">&#10084;</div>
+
+<script>
+  var target = new Date(2026, 6, 26, 15, 0, 0, 0); // 26.07.2026, 15:00 Uhr
+
+  function pad(n) {
+    return String(n).padStart(2, '0');
+  }
+
+  function tick() {
+    var now = new Date();
+    var diff = target - now;
+    var el = document.getElementById('countdown');
+
+    if (diff <= 0) {
+      el.textContent = '0 Tage, 00 Stunden, 00 Minuten, 00 Sekunden';
+      return;
+    }
+
+    var totalSeconds = Math.floor(diff / 1000);
+    var days = Math.floor(totalSeconds / 86400);
+    var hours = Math.floor((totalSeconds % 86400) / 3600);
+    var minutes = Math.floor((totalSeconds % 3600) / 60);
+    var seconds = totalSeconds % 60;
+
+    el.textContent = days + ' Tage, ' + pad(hours) + ' Stunden, ' + pad(minutes) + ' Minuten, ' + pad(seconds) + ' Sekunden';
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
+
+</body>
+</html>
