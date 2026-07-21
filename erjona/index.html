@@ -20,6 +20,10 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
   #countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
     color: #000;
     font-weight: 700;
     font-size: clamp(1.4rem, 5vw, 3rem);
@@ -35,7 +39,12 @@
 </head>
 <body>
 
-<div id="countdown">Lädt …</div>
+<div id="countdown">
+  <div id="d-days">Lädt …</div>
+  <div id="d-hours"></div>
+  <div id="d-minutes"></div>
+  <div id="d-seconds"></div>
+</div>
 <div id="heart">&#10084;</div>
 
 <script>
@@ -48,20 +57,20 @@
   function tick() {
     var now = new Date();
     var diff = target - now;
-    var el = document.getElementById('countdown');
 
-    if (diff <= 0) {
-      el.textContent = '0 Tage, 00 Stunden, 00 Minuten, 00 Sekunden';
-      return;
+    var days = 0, hours = 0, minutes = 0, seconds = 0;
+    if (diff > 0) {
+      var totalSeconds = Math.floor(diff / 1000);
+      days = Math.floor(totalSeconds / 86400);
+      hours = Math.floor((totalSeconds % 86400) / 3600);
+      minutes = Math.floor((totalSeconds % 3600) / 60);
+      seconds = totalSeconds % 60;
     }
 
-    var totalSeconds = Math.floor(diff / 1000);
-    var days = Math.floor(totalSeconds / 86400);
-    var hours = Math.floor((totalSeconds % 86400) / 3600);
-    var minutes = Math.floor((totalSeconds % 3600) / 60);
-    var seconds = totalSeconds % 60;
-
-    el.textContent = days + ' Tage, ' + pad(hours) + ' Stunden, ' + pad(minutes) + ' Minuten, ' + pad(seconds) + ' Sekunden';
+    document.getElementById('d-days').textContent = days + ' Tage';
+    document.getElementById('d-hours').textContent = pad(hours) + ' Stunden';
+    document.getElementById('d-minutes').textContent = pad(minutes) + ' Minuten';
+    document.getElementById('d-seconds').textContent = pad(seconds) + ' Sekunden';
   }
 
   tick();
